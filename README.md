@@ -80,9 +80,17 @@ flowchart LR
 
 ## Install
 
-> There is no prebuilt APK yet. For now you build it yourself, which takes about 5 minutes.
+### Download
 
-### You need
+Get the APK from the [**latest release**](https://github.com/ReoNaBear/LimitShorts/releases/latest). Copy it to your phone and open it from a file manager (allow "install unknown apps" first). Then turn on the accessibility service (see below). It needs Android 8.0 (API 26) or newer.
+
+To check the file, compare its SHA-256 with the `.sha256` file next to it.
+
+### Or build it yourself
+
+It takes about 5 minutes.
+
+#### You need
 
 | Item | Version |
 |---|---|
@@ -91,7 +99,7 @@ flowchart LR
 
 > Heads up: the JDK bundled with Android Studio can be newer than 21, and Gradle 8.10 fails on it. Point `JAVA_HOME` to JDK 21.
 
-### Build
+#### Build
 
 ```bash
 git clone https://github.com/ReoNaBear/LimitShorts.git LimitShorts
@@ -105,7 +113,7 @@ gradlew.bat assembleDebug
 
 The file is at `app/build/outputs/apk/debug/app-debug.apk`.
 
-### Put it on your phone
+#### Put it on your phone
 
 Connect the phone, turn on USB debugging, then:
 

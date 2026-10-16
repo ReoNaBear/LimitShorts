@@ -80,9 +80,17 @@ flowchart LR
 
 ## 安裝
 
-> 目前還沒有發佈好的 APK。第一次使用，請先自己建置，大約 5 分鐘。
+### 下載
 
-### 你需要
+到[**最新版本**](https://github.com/ReoNaBear/LimitShorts/releases/latest)下載 APK，傳到手機後用檔案管理員點開安裝（要先允許「安裝未知的應用程式」），再打開無障礙服務（見下面）。需要 Android 8.0（API 26）以上。
+
+想確認檔案沒被改過，可以把它的 SHA-256 和旁邊 `.sha256` 檔案裡的值比對。
+
+### 或是自己建置
+
+大約 5 分鐘。
+
+#### 你需要
 
 | 項目 | 版本 |
 |---|---|
@@ -91,7 +99,7 @@ flowchart LR
 
 > 注意：Android Studio 內建的 JDK 可能比 21 新，會讓 Gradle 8.10 失敗。請把 `JAVA_HOME` 指到 JDK 21。
 
-### 建置
+#### 建置
 
 ```bash
 git clone https://github.com/ReoNaBear/LimitShorts.git LimitShorts
@@ -105,7 +113,7 @@ gradlew.bat assembleDebug
 
 做好的檔案在 `app/build/outputs/apk/debug/app-debug.apk`。
 
-### 裝到手機
+#### 裝到手機
 
 手機接上電腦，打開「USB 偵錯」，然後：
 
