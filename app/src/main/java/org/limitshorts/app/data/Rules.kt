@@ -10,6 +10,8 @@ import org.json.JSONObject
  * 判斷「正在看短影片」有兩種線索,任何一種成立就算:
  *  - shortsViewIds:短影片播放頁才有的元件 ID(YouTube、Instagram 這樣有取名字的 App)
  *  - selectedTabPrefixes:被選取的分頁,描述文字以這些字開頭(Facebook 幾乎沒有 ID,但分頁有名字)
+ *  - fullScreenPrefixes:有一個佔滿大半個螢幕、描述以這些字開頭的元件(Facebook 從動態點開的全螢幕 Reels,
+ *    沒有下方分頁列,但整個畫面是一個描述為「Reel …」的大元件)
  *
  * 兩種都空 = 這個平台還沒實測過,介面上會顯示「準備中」。
  */
@@ -25,8 +27,24 @@ data class Rule(
     val ignoreBottomFraction: Float,
     /** 要讓影片暫停時,輕點畫面高度的這個比例處(0~1)。預設在中央略偏上。 */
     val pauseTapY: Float = 0.45f,
+    val fullScreenPrefixes: List<String> = emptyList(),
+    /** 「佔滿大半個螢幕」的門檻:元件高度要達到螢幕高度的這個比例(0~1)。 */
+    val fullScreenMinHeight: Float = 0.75f,
 ) {
-    val supported: Boolean get() = shortsViewIds.isNotEmpty() || selectedTabPrefixes.isNotEmpty()
+    val supported: Boolean get() =
+        shortsViewIds.isNotEmpty() || selectedTabPrefixes.isNotEmpty() || fullScreenPrefixes.isNotEmpty()
+
+    /**
+     * 這段文字是不是全螢幕短影片元件的描述?要以設定的字開頭,而且後面不能緊接著另一個字母,
+     * 所以「Reel by X」算、「Reels, tab 2 of 6」不算。不分大小寫。
+     */
+    fun isFullScreenLabel(label: CharSequence?): Boolean {
+        val text = label?.toString()?.trim().orEmpty()
+        if (text.isEmpty()) return false
+        return fullScreenPrefixes.any { p ->
+            text.startsWith(p, ignoreCase = true) && !text.getOrElse(p.length) { ' ' }.isLetter()
+        }
+    }
 
     /** 這段文字是不是「被選取的短影片分頁」的標籤?不分大小寫。 */
     fun isShortsTabLabel(label: CharSequence?): Boolean {
@@ -57,6 +75,8 @@ object Rules {
             ignoreTopFraction = o.optDouble("ignoreTopFraction", 0.0).toFloat(),
             ignoreBottomFraction = o.optDouble("ignoreBottomFraction", 0.12).toFloat(),
             pauseTapY = o.optDouble("pauseTapY", 0.45).toFloat(),
+            fullScreenPrefixes = strings(o, "fullScreenPrefixes"),
+            fullScreenMinHeight = o.optDouble("fullScreenMinHeight", 0.75).toFloat(),
         )
     }
 

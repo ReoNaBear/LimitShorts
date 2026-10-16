@@ -70,6 +70,16 @@ class RulesFilesTest {
     }
 
     @Test
+    fun `facebook also detects a full screen reel opened from the feed`() {
+        val rule = Rules.parse(File(dir, "facebook.json").readText(Charsets.UTF_8))
+        assertTrue(rule.isFullScreenLabel("Reel by Someone"))
+        assertFalse(rule.isFullScreenLabel("Reels, tab 2 of 6"))
+        // 要佔滿大半個螢幕才算,動態裡直接播的 Reel 只佔一半多
+        assertTrue(rule.fullScreenMinHeight > 0.6f)
+        assertTrue(rule.fullScreenMinHeight < 0.88f)
+    }
+
+    @Test
     fun `ignored screen areas never cover the whole screen`() {
         files().forEach {
             val rule = Rules.parse(it.readText(Charsets.UTF_8))

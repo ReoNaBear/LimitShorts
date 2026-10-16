@@ -204,6 +204,7 @@ A rule file ([`youtube.json`](app/src/main/assets/rules/youtube.json)):
   "package": "com.google.android.youtube",
   "shortsViewIds": ["reel_recycler", "reel_player_page_container"], // element IDs that only exist in shorts
   "selectedTabPrefixes": [],      // selected tab whose description starts with these (for apps without IDs, e.g. Facebook)
+  "fullScreenPrefixes": [],       // optional: a big element, covering most of the screen, whose description starts with these (a full-screen Reel opened from the Facebook feed)
   "ignoreTopFraction": 0.0,       // ignore this top share of the screen when reading keywords (tab bar, title bar)
   "ignoreBottomFraction": 0.12    // ignore this bottom share (bottom navigation)
 }
@@ -230,7 +231,7 @@ How to find the rule:
 ./gradlew connectedDebugAndroidTest
 ```
 
-There are 63 unit tests and 37 screen tests.
+There are 66 unit tests and 37 screen tests.
 
 ### Design
 
@@ -283,7 +284,8 @@ It looks at **which screen you are on now**, not how you got there. If you end u
 | YouTube | Shorts tab, the Shorts shelf on Home | ✅ Counts (tested) |
 | Instagram | Reels tab, Reels in Explore | ✅ Counts (tested) |
 | Facebook | Reels tab | ✅ Counts (tested) |
-| Facebook | A Reel that plays inside the news feed, or a Reel item opened from the feed | ❌ **Not counted for now** (tested on a real phone: staying on a Reel in the feed, or opening an item marked Reel, did not start the timer). To count everything, choose "Whole app" |
+| Facebook | A full-screen Reel opened from the news feed | ✅ Counted (tested on a real phone) |
+| Facebook | A Reel that plays inside the news feed and has not been opened | ❌ Not counted (tested on a real phone). To count everything, choose "Whole app" |
 | All | A normal post whose video plays inline in the feed (no full-screen player) | ❌ Does not count |
 
 <br>
@@ -291,7 +293,7 @@ It looks at **which screen you are on now**, not how you got there. If you end u
 ## Known limits
 
 - **Instagram titles and hashtags are not readable.** The blacklist only matches the author name there.
-- **Facebook detection relies on tab text.** Verified on the English UI (emulator) and the Traditional Chinese UI (real phone). Other languages may need extra rules, and Reels opened from the news feed are not supported yet.
+- **Facebook detection relies on text on the screen** (the name of the Reels tab, and the "Reel …" label of a full-screen Reel). Verified on the English UI (emulator) and the Traditional Chinese UI (real phone). Other languages may need extra rules.
 - **Only in-app Reels / Shorts pages count.** Short videos watched elsewhere (for example in a browser) are not counted. With "Whole app" only the time the app is in the foreground counts, so a browser is not included either.
 - **App updates can break detection** and need a rule update.
 - Only English, 繁體中文 and 日本語 for now.

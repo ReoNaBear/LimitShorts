@@ -8,7 +8,11 @@
   "selectedTabPrefixes": [
     "Reels"
   ],
+  "fullScreenPrefixes": [
+    "Reel"
+  ],
+  "fullScreenMinHeight": 0.75,
   "ignoreTopFraction": 0.15,
   "ignoreBottomFraction": 0.0,
-  "notes": "Facebook exposes almost no view IDs. The selected top tab is labelled 'Reels, tab 2 of 6'. Caption and hashtags are readable."
+  "notes": "Facebook exposes almost no view IDs. The selected Reels tab is labelled 'Reels, tab 2 of 6'. A Reel opened from the news feed is full screen without a tab bar: it is one big element (about 88% of the screen height) whose description starts with 'Reel'. A Reel playing inside the feed is smaller (about 58%) and is deliberately not matched. Caption and hashtags are readable."
 }

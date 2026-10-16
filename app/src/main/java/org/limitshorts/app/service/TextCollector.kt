@@ -35,6 +35,29 @@ object TextCollector {
         }
     }
 
+    /** 畫面上有沒有一個看得到、高度至少 [minHeight] 像素、描述或文字符合 [matches] 的元件?找到第一個就停。 */
+    fun hasLargeLabeledNode(root: AccessibilityNodeInfo, minHeight: Int, matches: (CharSequence?) -> Boolean): Boolean =
+        findLarge(root, minHeight, matches, intArrayOf(0), Rect())
+
+    private fun findLarge(
+        n: AccessibilityNodeInfo, minHeight: Int, matches: (CharSequence?) -> Boolean,
+        count: IntArray, r: Rect,
+    ): Boolean {
+        if (count[0]++ >= MAX_NODES) return false
+        if (n.isVisibleToUser) {
+            n.getBoundsInScreen(r)
+            if (r.height() >= minHeight && (matches(n.contentDescription) || matches(n.text))) return true
+        }
+        for (i in 0 until n.childCount) {
+            val c = n.getChild(i) ?: continue
+            val found = findLarge(c, minHeight, matches, count, r)
+            @Suppress("DEPRECATION")
+            if (Build.VERSION.SDK_INT < 33) c.recycle()
+            if (found) return true
+        }
+        return false
+    }
+
     /** 有沒有「被選取」的節點,它的描述或文字符合 [matches]?找到第一個就停。 */
     fun hasSelectedTab(root: AccessibilityNodeInfo, matches: (CharSequence?) -> Boolean): Boolean =
         findSelected(root, matches, intArrayOf(0))

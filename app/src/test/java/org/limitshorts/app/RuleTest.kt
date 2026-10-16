@@ -43,6 +43,23 @@ class RuleTest {
     }
 
     @Test
+    fun `full screen prefixes alone make a rule supported`() {
+        assertTrue(Rule("x", "X", "pkg.x", emptyList(), emptyList(), 0f, 0f, fullScreenPrefixes = listOf("Reel")).supported)
+    }
+
+    @Test
+    fun `full screen label is a prefix not followed by a letter`() {
+        val r = Rule("x", "X", "pkg.x", emptyList(), emptyList(), 0f, 0f, fullScreenPrefixes = listOf("Reel"))
+        assertTrue(r.isFullScreenLabel("Reel by Someone"))
+        assertTrue(r.isFullScreenLabel("reel 影片"))
+        assertTrue(r.isFullScreenLabel("Reel"))
+        assertFalse(r.isFullScreenLabel("Reels, tab 2 of 6"))
+        assertFalse(r.isFullScreenLabel("Real"))
+        assertFalse(r.isFullScreenLabel(null))
+        assertFalse(r.isFullScreenLabel(""))
+    }
+
+    @Test
     fun `several prefixes are all tried`() {
         val r = rule(prefixes = listOf("Reels", "短影片"))
         assertTrue(r.isShortsTabLabel("短影片，第 2 個分頁"))

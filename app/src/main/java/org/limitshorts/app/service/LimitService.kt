@@ -90,7 +90,13 @@ class LimitService : AccessibilityService() {
     /** 規則裡任何一種線索成立,就算正在看短影片。 */
     private fun isShorts(root: AccessibilityNodeInfo, rule: Rule): Boolean =
         hasShortsViewId(root, rule) ||
-            (rule.selectedTabPrefixes.isNotEmpty() && TextCollector.hasSelectedTab(root, rule::isShortsTabLabel))
+            (rule.selectedTabPrefixes.isNotEmpty() && TextCollector.hasSelectedTab(root, rule::isShortsTabLabel)) ||
+            (rule.fullScreenPrefixes.isNotEmpty() &&
+                TextCollector.hasLargeLabeledNode(
+                    root,
+                    (resources.displayMetrics.heightPixels * rule.fullScreenMinHeight).toInt(),
+                    rule::isFullScreenLabel,
+                ))
 
     private fun hasShortsViewId(root: AccessibilityNodeInfo, rule: Rule): Boolean =
         rule.shortsViewIds.any { id ->

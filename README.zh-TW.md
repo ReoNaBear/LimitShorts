@@ -204,6 +204,7 @@ app/src/main/
   "package": "com.google.android.youtube",
   "shortsViewIds": ["reel_recycler", "reel_player_page_container"], // 短影片頁才有的元件 ID
   "selectedTabPrefixes": [],      // 被選取的分頁，描述以這些字開頭（沒有元件 ID 的 App 用，例如 Facebook）
+  "fullScreenPrefixes": [],       // 選填：佔滿大半個螢幕、描述以這些字開頭的元件（Facebook 從動態點開的全螢幕 Reel）
   "ignoreTopFraction": 0.0,       // 讀關鍵字時，略過畫面最上面這個比例（分頁列、標題列）
   "ignoreBottomFraction": 0.12    // 略過最下面這個比例（底部導覽列）
 }
@@ -230,7 +231,7 @@ app/src/main/
 ./gradlew connectedDebugAndroidTest
 ```
 
-目前有 63 個單元測試和 37 個畫面測試。
+目前有 66 個單元測試和 37 個畫面測試。
 
 ### 設計
 
@@ -283,7 +284,8 @@ app/src/main/
 | YouTube | Shorts 分頁、首頁的 Shorts 區塊 | ✅ 算（已實測） |
 | Instagram | Reels 分頁、探索頁的 Reels | ✅ 算（已實測） |
 | Facebook | Reels 分頁 | ✅ 算（已實測） |
-| Facebook | 動態消息裡直接播放的 Reel，或從動態點開的 Reel 項目 | ❌ **目前不算**（實機測過：停在動態裡的 Reel、或點開標著 Reel 的項目，都沒有開始計時）。想全部都算，請選「整個 App」 |
+| Facebook | 從動態點開、全螢幕的 Reel | ✅ 算（已實測） |
+| Facebook | 動態消息裡直接播放、還沒點開的 Reel | ❌ 不算（已實測）。想全部都算，請選「整個 App」 |
 | 全部 | 動態裡直接播放的一般貼文影片（沒進到全螢幕播放頁） | ❌ 不算 |
 
 <br>
@@ -291,7 +293,7 @@ app/src/main/
 ## 已知限制
 
 - **Instagram 的標題與 hashtag 讀不到**，黑名單在 Instagram 只比對得到作者名稱。
-- **Facebook 的判斷依賴分頁文字**。目前驗證過英文介面（模擬器）和繁體中文介面（實機），其他語言的 Facebook 可能要補規則；從動態消息點開的 Reels 也還沒支援。
+- **Facebook 的判斷依賴畫面上的文字**（Reels 分頁的名稱，以及全螢幕 Reel 的描述「Reel …」）。目前驗證過英文介面（模擬器）和繁體中文介面（實機），其他語言的 Facebook 可能要補規則。
 - **只認得 App 內的 Reels／Shorts 頁面。** 從別處（例如瀏覽器）看短影片，不會被計入。選「整個 App」的話，只計 App 在前景的時間，同樣不含瀏覽器。
 - **App 改版會讓判斷失效**，需要更新規則檔。
 - 目前只有繁中、English、日本語。
