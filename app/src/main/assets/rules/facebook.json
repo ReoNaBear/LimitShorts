@@ -3,7 +3,7 @@
   "name": "Facebook",
   "package": "com.facebook.katana",
   "verified": true,
-  "verifiedWith": "Facebook 582.0 on Android 17 (emulator), English UI",
+  "verifiedWith": "Facebook 582.0 on Android 17 (emulator, English UI); Facebook 582.0.0.50.54 on Android 16 (Sharp SH-M35, Traditional Chinese UI)",
   "shortsViewIds": [],
   "selectedTabPrefixes": [
     "Reels"
