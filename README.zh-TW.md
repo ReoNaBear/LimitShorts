@@ -283,7 +283,7 @@ app/src/main/
 | YouTube | Shorts 分頁、首頁的 Shorts 區塊 | ✅ 算（已實測） |
 | Instagram | Reels 分頁、探索頁的 Reels | ✅ 算（已實測） |
 | Facebook | Reels 分頁 | ✅ 算（已實測） |
-| Facebook | 從動態消息點開的 Reels | ❓ **還沒驗證**，目前的規則只認「Reels 分頁」，很可能不會算 |
+| Facebook | 從動態消息點開的 Reel 項目 | ❌ **目前不算**（實機測過：點開動態裡標著 Reel 的項目，沒有開始計時）。想全部都算，請選「整個 App」 |
 | 全部 | 動態裡直接播放的一般貼文影片（沒進到全螢幕播放頁） | ❌ 不算 |
 
 <br>
