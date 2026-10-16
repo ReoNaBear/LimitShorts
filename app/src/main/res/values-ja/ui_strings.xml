@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pill_on">オン</string>
+    <string name="pill_off">まだオフ</string>
+    <string name="ring_caption">今日つかった時間</string>
+    <string name="ring_off_title">まだオフです</string>
+    <string name="ring_off_sub">オンにすると、お手伝いできるよ</string>
+    <string name="unit_min">分</string>
+
+    <string name="cta_enable">オンにする</string>
+    <string name="cta_hint">「ユーザー補助」の画面で、LimitShortsを見つけて、スイッチをオンにしてね。</string>
+
+    <string name="section_platforms">短い動画の時間</string>
+    <string name="used_today">今日は%1$d分見たよ</string>
+    <string name="limit_label">1日に%1$d分まで</string>
+    <string name="limit_less">へらす</string>
+    <string name="limit_more">ふやす</string>
+    <string name="coming_soon">じゅんび中です。もうすぐ使えるよ</string>
+
+    <string name="section_words">見たくない言葉</string>
+    <string name="words_desc">動画にこの言葉があったら、次の動画にスワイプするよ。</string>
+    <string name="words_hint">言葉を1つ入れてね（れい：AI）</string>
+    <string name="words_add">ついか</string>
+    <string name="words_empty">まだ言葉がありません</string>
+    <string name="words_remove">%1$sを消す</string>
+    <string name="skipped_today">今日は%1$d本とばしたよ</string>
+
+    <string name="block_title">時間だよ！</string>
+    <string name="block_message">今日の%1$sの時間は、おしまいです。\n目と頭を休ませよう。</string>
+    <string name="block_rest">うん、休むよ</string>
+    <string name="block_extend">あと%1$d分見る</string>
+    <string name="block_extend_left">今日はあと%1$d回、のばせるよ</string>
+    <string name="block_extend_none">今日はもうのばせません</string>
+
+    <string name="dev_title">かいはつ者ツール</string>
+    <string name="diag_title">画面のようすを保存</string>
+    <string name="diag_desc">オンにして、YouTube、Instagram、Facebookで短い動画を見てください。画面のつくりを保存して、見つけるルールを作ります。</string>
+    <string name="diag_count_label">こ保存したよ</string>
+    <string name="diag_last">さいきん：%1$s</string>
+    <string name="diag_clear">ぜんぶ消す</string>
+
+    <string name="privacy">インターネットなし・データはスマホの中だけ・オープンソース GPL-3.0</string>
+    <string name="back_desc">もどる</string>
+    <string name="settings_open_desc">せってい</string>
+    <string name="settings_title">せってい</string>
+
+    <string name="onb_welcome_title">こんにちは！\n見すぎをふせぐよ</string>
+    <string name="onb_welcome_1">みじかい動画を見た時間をはかるよ</string>
+    <string name="onb_welcome_2">時間になったら、休むようにつたえるよ</string>
+    <string name="onb_welcome_3">きらいな言葉がある動画は、とばすよ</string>
+    <string name="onb_next">つぎへ</string>
+    <string name="onb_mode_title">どっちの画面がいい？</string>
+    <string name="onb_mode_simple">かんたん</string>
+    <string name="onb_mode_simple_desc">大きな字。大事なものだけ</string>
+    <string name="onb_mode_standard">ぜんぶ</string>
+    <string name="onb_mode_standard_desc">すべてのせっていとグラフ</string>
+    <string name="onb_mode_note">あとで変えられるよ</string>
+    <string name="onb_enable_title">さいごのステップ！</string>
+    <string name="onb_enable_1">下のボタンをおす</string>
+    <string name="onb_enable_2">一覧でLimitShortsを見つける</string>
+    <string name="onb_enable_3">スイッチをオンにして、ここにもどる</string>
+    <string name="onb_enable_btn">その画面をひらく</string>
+    <string name="onb_later">あとで</string>
+    <string name="onb_step_desc">%2$d ステップ中 %1$d</string>
+
+    <string name="set_mode_title">かんたん画面</string>
+    <string name="set_mode_desc">大きな字で、せっていも少ないよ</string>
+    <string name="quiet_title">おやすみ時間</string>
+    <string name="quiet_desc">この時間は、みじかい動画を見られないよ</string>
+    <string name="quiet_from">はじまり</string>
+    <string name="quiet_to">おわり</string>
+    <string name="quiet_range">%1$sから%2$sまで</string>
+    <string name="time_earlier">早く</string>
+    <string name="time_later">おそく</string>
+    <string name="lang_title">言語</string>
+    <string name="lang_desc">スマホのせっていで変えられるよ</string>
+    <string name="about_title">このアプリについて</string>
+    <string name="about_text">オープンソース（GPL-3.0）。インターネットは使いません。データはスマホの中だけです。</string>
+
+    <string name="week_title">今週</string>
+    <string name="week_day_desc">%1$s：%2$d分</string>
+
+    <string name="simple_limit_title">1日に見ていい時間</string>
+    <string name="simple_quiet_title">よるはおやすみ</string>
+
+    <string name="block_quiet_title">おやすみ時間だよ</string>
+    <string name="block_quiet_message">%1$sから%2$sまでは、みじかい動画はおやすみ。\nまたあとでね！</string>
+    <string name="dev_desc">プラットフォームを足したり直したりしたい人向けです</string>
+    <string name="scope_title">どの時間をはかる？</string>
+    <string name="scope_shorts">短い動画だけ</string>
+    <string name="scope_app">アプリ全部</string>
+    <string name="scope_desc_shorts">短い動画を見ている時間だけ</string>
+    <string name="scope_desc_app">このアプリをひらいている時間ぜんぶ</string>
+</resources>

@@ -1,0 +1,7 @@
+# 倉庫裡一律用 LF;Windows 專用的 .bat 保留 CRLF
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jar binary
+*.jks binary

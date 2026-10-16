@@ -1,0 +1,15 @@
+{
+  "id": "instagram",
+  "name": "Instagram",
+  "package": "com.instagram.android",
+  "verified": true,
+  "verifiedWith": "Instagram 451.0 on Android 17 (emulator)",
+  "shortsViewIds": [
+    "clips_viewer_view_pager",
+    "clips_viewer_container",
+    "root_clips_layout"
+  ],
+  "ignoreTopFraction": 0.1,
+  "ignoreBottomFraction": 0.12,
+  "notes": "Caption is collapsed to 'See more' and is not exposed, so keywords only match the author name."
+}

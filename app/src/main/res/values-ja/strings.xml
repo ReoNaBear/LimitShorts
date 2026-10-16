@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_description">LimitShortsは、YouTube、Instagram、Facebookだけを見ます。みじかい動画を見ているかどうかを調べます。時間がきたら、画面をかくします。見たくない言葉が出たら、次の動画にスワイプします。データはスマホの外には出ません。このアプリはインターネットにつながりません。</string>
+</resources>

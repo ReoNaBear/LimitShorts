@@ -1,0 +1,13 @@
+{
+  "id": "youtube",
+  "name": "YouTube",
+  "package": "com.google.android.youtube",
+  "verified": true,
+  "shortsViewIds": [
+    "reel_recycler",
+    "reel_player_page_container",
+    "reel_watch_fragment_root"
+  ],
+  "ignoreTopFraction": 0.0,
+  "ignoreBottomFraction": 0.12
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">LimitShorts</string>
+    <string name="brand" translatable="false">LIMITSHORTS</string>
+    <string name="service_description">LimitShorts only looks at YouTube, Instagram and Facebook. It checks if you are watching short videos. When your time is up, it covers the screen. When it sees a word you do not want to see, it swipes to the next video. Nothing leaves your phone, and this app cannot use the internet.</string>
+</resources>

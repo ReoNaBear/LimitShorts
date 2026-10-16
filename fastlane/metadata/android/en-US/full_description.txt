@@ -1,0 +1,19 @@
+LimitShorts puts a daily limit on short videos: YouTube Shorts, Instagram Reels and Facebook Reels.
+
+When your time is up, the video stops and a screen covers the app. You can still press Back or Home at any time.
+
+<b>What it does</b>
+• One daily limit per app. Count short videos only, or the whole app.
+• Up to 3 extensions of 5 minutes per app per day.
+• Rest time (for example 22:00 to 07:00) when short videos are off.
+• Blocked words: when a video mentions one, the app swipes to the next one.
+• Simple mode with big text and few settings.
+• English, Traditional Chinese and Japanese.
+
+<b>Privacy</b>
+LimitShorts has no Internet permission. It cannot send anything anywhere. Everything stays on your phone.
+
+<b>Accessibility permission</b>
+To know when a short video is on screen, and to pause it when time is up, LimitShorts uses Android's accessibility service. It only looks at YouTube, Instagram and Facebook. It reads screen labels on your phone to tell short-video pages from the rest, and keeps nothing except your daily totals and settings. You turn it on yourself in Android settings and can turn it off at any time.
+
+Free software, GPL-3.0.

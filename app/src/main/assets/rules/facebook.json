@@ -1,0 +1,14 @@
+{
+  "id": "facebook",
+  "name": "Facebook",
+  "package": "com.facebook.katana",
+  "verified": true,
+  "verifiedWith": "Facebook 582.0 on Android 17 (emulator), English UI",
+  "shortsViewIds": [],
+  "selectedTabPrefixes": [
+    "Reels"
+  ],
+  "ignoreTopFraction": 0.15,
+  "ignoreBottomFraction": 0.0,
+  "notes": "Facebook exposes almost no view IDs. The selected top tab is labelled 'Reels, tab 2 of 6'. Caption and hashtags are readable."
+}

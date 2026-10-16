@@ -1,0 +1,1 @@
+第一版。限制 YouTube Shorts、Instagram Reels、Facebook Reels 每天的時間，有休息時間、黑名單關鍵字、簡單畫面。

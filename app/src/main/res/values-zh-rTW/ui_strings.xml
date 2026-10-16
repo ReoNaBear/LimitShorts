@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pill_on">已打開</string>
+    <string name="pill_off">還沒打開</string>
+    <string name="ring_caption">今天用掉的時間</string>
+    <string name="ring_off_title">還沒打開</string>
+    <string name="ring_off_sub">打開之後，我才能幫你</string>
+    <string name="unit_min">分鐘</string>
+
+    <string name="cta_enable">去打開</string>
+    <string name="cta_hint">到「無障礙」頁面，找到 LimitShorts，把開關打開就好。</string>
+
+    <string name="section_platforms">短影片時間</string>
+    <string name="used_today">今天看了 %1$d 分鐘</string>
+    <string name="limit_label">一天最多看 %1$d 分鐘</string>
+    <string name="limit_less">少一點</string>
+    <string name="limit_more">多一點</string>
+    <string name="coming_soon">還在準備，很快就能用囉</string>
+
+    <string name="section_words">不想看到的字</string>
+    <string name="words_desc">影片裡只要有這些字，我就幫你滑到下一支。</string>
+    <string name="words_hint">輸入一個字，例如：AI</string>
+    <string name="words_add">加入</string>
+    <string name="words_empty">還沒有加任何字</string>
+    <string name="words_remove">刪掉 %1$s</string>
+    <string name="skipped_today">今天幫你滑掉了 %1$d 支</string>
+
+    <string name="block_title">時間到囉！</string>
+    <string name="block_message">你今天看 %1$s 的時間用完了。\n讓眼睛和腦袋休息一下吧！</string>
+    <string name="block_rest">好，我去休息</string>
+    <string name="block_extend">再看 %1$d 分鐘</string>
+    <string name="block_extend_left">今天還可以多看 %1$d 次</string>
+    <string name="block_extend_none">今天不能再多看了</string>
+
+    <string name="dev_title">開發者工具</string>
+    <string name="diag_title">記下畫面的樣子</string>
+    <string name="diag_desc">打開後，去 YouTube、Instagram、Facebook 看短影片。App 會記下畫面是怎麼組成的，讓我們能寫出判斷規則。</string>
+    <string name="diag_count_label">個畫面已記下</string>
+    <string name="diag_last">最近：%1$s</string>
+    <string name="diag_clear">全部刪掉</string>
+
+    <string name="privacy">不連網路・資料只留在手機・開放原始碼 GPL-3.0</string>
+    <string name="back_desc">回上一頁</string>
+    <string name="settings_open_desc">設定</string>
+    <string name="settings_title">設定</string>
+
+    <string name="onb_welcome_title">嗨！\n我來幫你少看一點</string>
+    <string name="onb_welcome_1">我會算你看短影片看了多久</string>
+    <string name="onb_welcome_2">時間到了，我會叫你休息</string>
+    <string name="onb_welcome_3">有你不喜歡的字，我會幫你跳過</string>
+    <string name="onb_next">下一步</string>
+    <string name="onb_mode_title">你喜歡哪一種畫面？</string>
+    <string name="onb_mode_simple">簡單版</string>
+    <string name="onb_mode_simple_desc">字很大，只留重要的</string>
+    <string name="onb_mode_standard">完整版</string>
+    <string name="onb_mode_standard_desc">所有設定和圖表都有</string>
+    <string name="onb_mode_note">之後可以再改</string>
+    <string name="onb_enable_title">最後一步！</string>
+    <string name="onb_enable_1">按下面的按鈕</string>
+    <string name="onb_enable_2">在清單裡找到 LimitShorts</string>
+    <string name="onb_enable_3">把開關打開，再回到這裡</string>
+    <string name="onb_enable_btn">去那一頁</string>
+    <string name="onb_later">等一下再說</string>
+    <string name="onb_step_desc">第 %1$d 步，共 %2$d 步</string>
+
+    <string name="set_mode_title">簡單畫面</string>
+    <string name="set_mode_desc">字很大，設定很少</string>
+    <string name="quiet_title">休息時間</string>
+    <string name="quiet_desc">這段時間不能看短影片</string>
+    <string name="quiet_from">從</string>
+    <string name="quiet_to">到</string>
+    <string name="quiet_range">%1$s 到 %2$s</string>
+    <string name="time_earlier">早一點</string>
+    <string name="time_later">晚一點</string>
+    <string name="lang_title">語言</string>
+    <string name="lang_desc">到手機的設定裡更換</string>
+    <string name="about_title">關於</string>
+    <string name="about_text">開放原始碼（GPL-3.0）。不連網路，資料只留在你的手機裡。</string>
+
+    <string name="week_title">這一週</string>
+    <string name="week_day_desc">%1$s：%2$d 分鐘</string>
+
+    <string name="simple_limit_title">一天最多看</string>
+    <string name="simple_quiet_title">晚上要休息</string>
+
+    <string name="block_quiet_title">休息時間</string>
+    <string name="block_quiet_message">%1$s 到 %2$s 不能看短影片。\n等一下再來吧！</string>
+    <string name="dev_desc">給想幫忙新增或修正平台的人用</string>
+    <string name="scope_title">要算哪些時間？</string>
+    <string name="scope_shorts">只算短影片</string>
+    <string name="scope_app">整個 App</string>
+    <string name="scope_desc_shorts">只算你看短影片的時間</string>
+    <string name="scope_desc_app">這個 App 打開的時間全部都算</string>
+</resources>

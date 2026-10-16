@@ -1,0 +1,28 @@
+# F-Droid 投稿草稿。投稿時,把這份複製成 fdroiddata 倉庫的 metadata/org.limitshorts.app.yml,
+# 要先在公開倉庫打好並推上 v0.1.0 標籤。
+# 流程見 docs/RELEASING.md。
+
+Categories:
+  - Time
+  - System
+License: GPL-3.0-only
+SourceCode: https://github.com/ReoNaBear/LimitShorts
+IssueTracker: https://github.com/ReoNaBear/LimitShorts/issues
+
+AutoName: LimitShorts
+
+RepoType: git
+Repo: https://github.com/ReoNaBear/LimitShorts.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1

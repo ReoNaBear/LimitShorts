@@ -1,0 +1,23 @@
+.spectra/
+docs/spectra/.vector-search.db*
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+/captures
+.cxx/
+.kotlin/
+
+# 簽章金鑰:絕對不能公開
+keystore.properties
+*.jks
+*.keystore
+
+# 本機開發工具(不公開)
+.claude/
+.spectra.yaml
+docs/spectra/
+CLAUDE.md
