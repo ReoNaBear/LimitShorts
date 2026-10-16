@@ -48,6 +48,8 @@ class LimitService : AccessibilityService() {
     private val blockToken = Any()
     private var blockStarting = false
     private var stubbornTicks = 0
+    private var lastEnforceAt = 0L
+    private var restarts = 0
     private var lastDumpAt = 0L
     private var lastTreeHash = 0
     private val stamp = SimpleDateFormat("yyyyMMdd-HHmmss-SSS", Locale.US)
@@ -111,6 +113,7 @@ class LimitService : AccessibilityService() {
     }
 
     private fun leaveScope() {
+        resetStubborn()
         current = null
         ticking = false
         handler.removeCallbacks(tick)
@@ -147,12 +150,13 @@ class LimitService : AccessibilityService() {
         val snap = Store.state.value
         val reason = BlockPolicy.decide(snap.platforms[rule.id], snap.quiet, minuteOfDay())
         if (reason == null) {
+            resetStubborn()
             cancelBlockStart()
             overlay.hide()
             return
         }
         if (overlay.isShowing) {
-            enforceStopped()
+            enforceStopped(rule)
             return
         }
         if (!blockStarting) beginBlock(rule)
@@ -204,18 +208,42 @@ class LimitService : AccessibilityService() {
         blockStarting = false
     }
 
-    /** 覆蓋畫面都出現了,影片卻還在播(例如自動播下一支):先再送一次暫停,還是不行就回到桌面。 */
-    private fun enforceStopped() {
+    /**
+     * 覆蓋畫面都出現了,影片卻還在播(暫停鍵太晚生效、自動播下一支…)。一步一步加強:
+     *  1. 先再送一次暫停
+     *  2. 重新來一次「暫停、點一下、再蓋上」,最多 3 次
+     *  3. 還是不行,才回桌面
+     * 回桌面是最後手段:YouTube 會縮成小視窗繼續播,而且小視窗我們管不到。
+     * 所以前面要給足時間,尤其是「一秒才算一次」,不能讓影片還沒來得及暫停就被送走。
+     */
+    private fun enforceStopped(rule: Rule) {
+        // 畫面一有變動就會進來,一秒內可能很多次。這裡要真的「一秒算一次」,
+        // 否則覆蓋畫面一出現、影片還沒來得及暫停,就瞬間用完次數而被送回桌面
+        val now = SystemClock.uptimeMillis()
+        if (now - lastEnforceAt < ENFORCE_INTERVAL_MS) return
+        lastEnforceAt = now
         if (!isMediaPlaying()) {
             stubbornTicks = 0
             return
         }
         stubbornTicks++
         if (stubbornTicks == 2) pauseMedia()
-        if (stubbornTicks >= 4) {
-            stubbornTicks = 0
-            performGlobalAction(GLOBAL_ACTION_HOME)
+        if (stubbornTicks < 4) return
+        stubbornTicks = 0
+        when {
+            restarts < MAX_RESTARTS -> {
+                restarts++
+                overlay.hide()
+                cancelBlockStart()
+                beginBlock(rule)
+            }
+            else -> performGlobalAction(GLOBAL_ACTION_HOME)
         }
+    }
+
+    private fun resetStubborn() {
+        stubbornTicks = 0
+        restarts = 0
     }
 
     private fun onShortsPage(rule: Rule): Boolean {
@@ -327,5 +355,7 @@ class LimitService : AccessibilityService() {
         const val SKIP_COOLDOWN_MS = 1500L
         const val FOCUS_SETTLE_MS = 600L
         const val TAP_SETTLE_MS = 600L
+        const val ENFORCE_INTERVAL_MS = 900L
+        const val MAX_RESTARTS = 3
     }
 }

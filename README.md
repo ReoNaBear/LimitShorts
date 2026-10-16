@@ -283,7 +283,7 @@ It looks at **which screen you are on now**, not how you got there. If you end u
 | YouTube | Shorts tab, the Shorts shelf on Home | ✅ Counts (tested) |
 | Instagram | Reels tab, Reels in Explore | ✅ Counts (tested) |
 | Facebook | Reels tab | ✅ Counts (tested) |
-| Facebook | A Reel item opened from the news feed | ❌ **Not counted for now** (tested on a real phone: opening an item marked Reel in the feed did not start the timer). To count everything, choose "Whole app" |
+| Facebook | A Reel that plays inside the news feed, or a Reel item opened from the feed | ❌ **Not counted for now** (tested on a real phone: staying on a Reel in the feed, or opening an item marked Reel, did not start the timer). To count everything, choose "Whole app" |
 | All | A normal post whose video plays inline in the feed (no full-screen player) | ❌ Does not count |
 
 <br>
